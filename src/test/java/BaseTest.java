@@ -1,6 +1,3 @@
-package org.mytests.tests.example.rozetka.tests;
-
-
 import org.mytests.uiobjects.example.rozetka.utils.DriverSingleton;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
