@@ -1,8 +1,9 @@
-package org.mytests.tests.example.rozetka.manager;
+package org.mytests.uiobjects.example.rozetka.manager;
 
-import org.mytests.tests.example.rozetka.businesslogic.BusinessLogicLayer;
-import org.mytests.tests.example.rozetka.utils.DriverSingleton;
-import org.mytests.tests.example.rozetka.pages.HomePage;
+import org.mytests.uiobjects.example.rozetka.businesslogic.BusinessLogicLayer;
+import org.mytests.uiobjects.example.rozetka.pages.HomePage;
+import org.mytests.uiobjects.example.rozetka.utils.DriverSingleton;
+
 
 public class PageFactoryManager {
 

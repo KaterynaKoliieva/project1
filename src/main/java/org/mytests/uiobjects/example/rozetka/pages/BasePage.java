@@ -1,4 +1,4 @@
-package org.mytests.tests.example.rozetka.pages;
+package org.mytests.uiobjects.example.rozetka.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

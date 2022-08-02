@@ -1,6 +1,6 @@
 package org.mytests.tests.example.rozetka.tests;
 
-import org.mytests.tests.example.rozetka.manager.PageFactoryManager;
+import org.mytests.uiobjects.example.rozetka.manager.PageFactoryManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

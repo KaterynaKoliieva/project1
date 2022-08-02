@@ -1,6 +1,6 @@
-package org.mytests.tests.example.rozetka.pages;
+package org.mytests.uiobjects.example.rozetka.pages;
 
-import org.mytests.tests.example.rozetka.utils.Wait;
+import org.mytests.uiobjects.example.rozetka.utils.Wait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

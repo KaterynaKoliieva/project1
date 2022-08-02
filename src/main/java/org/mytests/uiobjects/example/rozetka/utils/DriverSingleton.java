@@ -1,4 +1,4 @@
-package org.mytests.tests.example.rozetka.utils;
+package org.mytests.uiobjects.example.rozetka.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

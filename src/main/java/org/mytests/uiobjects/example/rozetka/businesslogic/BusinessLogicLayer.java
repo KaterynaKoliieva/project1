@@ -1,8 +1,8 @@
-package org.mytests.tests.example.rozetka.businesslogic;
+package org.mytests.uiobjects.example.rozetka.businesslogic;
 
-import org.mytests.tests.example.rozetka.pages.BasePage;
+import org.mytests.uiobjects.example.rozetka.pages.BasePage;
+import org.mytests.uiobjects.example.rozetka.manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
-import static org.mytests.tests.example.rozetka.manager.PageFactoryManager.homePage;
 
 public class BusinessLogicLayer extends BasePage {
 
@@ -11,7 +11,7 @@ public class BusinessLogicLayer extends BasePage {
     }
 
     public String isTheEnteredTextDisplayed () {
-        return homePage.enterTextInTheSearchField()
+        return PageFactoryManager.homePage.enterTextInTheSearchField()
                        .displayOfEnteredText();
     }
 }
