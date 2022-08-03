@@ -1,7 +1,7 @@
-package org.mytests.uiobjects.example.rozetka.businesslogic;
+package businesslogic;
 
-import org.mytests.uiobjects.example.rozetka.pages.BasePage;
-import org.mytests.uiobjects.example.rozetka.manager.PageFactoryManager;
+import manager.PageFactoryManager;
+import pages.BasePage;
 import org.openqa.selenium.WebDriver;
 
 public class BusinessLogicLayer extends BasePage {

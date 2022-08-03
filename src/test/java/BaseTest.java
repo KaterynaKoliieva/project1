@@ -1,12 +1,9 @@
-import org.mytests.uiobjects.example.rozetka.utils.DriverSingleton;
+import utils.DriverSingleton;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
-
-    private static final String ROZETKA_URL = "https://rozetka.com.ua/";
-
     @BeforeTest
     public void profileSetUp() {
         DriverSingleton.getDriver();
@@ -14,7 +11,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void testsSetUp() {
-        DriverSingleton.openUrl(ROZETKA_URL);
+        DriverSingleton.openUrl();
     }
 
     @AfterTest

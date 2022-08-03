@@ -1,5 +1,7 @@
-package org.mytests.uiobjects.example.rozetka.utils;
+package utils;
 
+import dataProvider.ConfigFileReader;
+import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -7,7 +9,6 @@ import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 
 public class DriverSingleton {
     private static WebDriver driver;
-
     private DriverSingleton() {
     }
 
@@ -20,8 +21,8 @@ public class DriverSingleton {
         return driver;
     }
 
-    public static void openUrl(final String url) {
-        driver.get(url);
+    public static void openUrl(){
+        driver.get(PageFactoryManager.configFileReader.getApplicationUrl());
     }
 
     public static void quitDriver() {

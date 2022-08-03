@@ -1,7 +1,8 @@
-package org.mytests.uiobjects.example.rozetka.pages;
+package pages;
 
 
-import org.mytests.uiobjects.example.rozetka.utils.Wait;
+import manager.PageFactoryManager;
+import utils.Wait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +21,7 @@ public class HomePage extends BasePage{
     public SearchPage enterTextInTheSearchField(){
         Wait.waitForPageLoadComplete();
         searchField.click();
-        searchField.sendKeys("test");
+        searchField.sendKeys(PageFactoryManager.configFileReader.enteredText());
         Wait.waitForTheElementToClick(searchButton);
         searchButton.click();
         return new SearchPage(driver);
