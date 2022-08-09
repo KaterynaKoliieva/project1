@@ -8,9 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class Wait {
-
-    private static final int DEFAULT_TIME = 10;
-
+    private static final int DEFAULT_TIME = 20;
     public static void waitForPageLoadComplete() {
         new WebDriverWait(DriverSingleton.getDriver(), Duration.ofSeconds(DEFAULT_TIME)).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
@@ -26,7 +24,8 @@ public class Wait {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public static void implicitWait() {
+    public static void implicitlyWait() {
         DriverSingleton.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(DEFAULT_TIME));
     }
+
 }

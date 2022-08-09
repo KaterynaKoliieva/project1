@@ -1,13 +1,16 @@
-package pages;
+package pages.rozetka;
 
 
 import manager.PageFactoryManager;
-import utils.Wait;
+import pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+import static utils.Wait.waitForPageLoadComplete;
+import static utils.Wait.waitForTheElementToClick;
+
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -19,10 +22,10 @@ public class HomePage extends BasePage{
     private WebElement searchButton;
 
     public SearchPage enterTextInTheSearchField(){
-        Wait.waitForPageLoadComplete();
+        waitForPageLoadComplete();
         searchField.click();
         searchField.sendKeys(PageFactoryManager.configFileReader.enteredText());
-        Wait.waitForTheElementToClick(searchButton);
+        waitForTheElementToClick(searchButton);
         searchButton.click();
         return new SearchPage(driver);
     }

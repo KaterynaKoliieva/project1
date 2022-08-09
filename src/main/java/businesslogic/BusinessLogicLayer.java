@@ -1,8 +1,9 @@
 package businesslogic;
 
-import manager.PageFactoryManager;
 import pages.BasePage;
 import org.openqa.selenium.WebDriver;
+
+import static manager.PageFactoryManager.*;
 
 public class BusinessLogicLayer extends BasePage {
 
@@ -10,8 +11,39 @@ public class BusinessLogicLayer extends BasePage {
         super(driver);
     }
 
-    public String isTheEnteredTextDisplayed () {
-        return PageFactoryManager.homePage.enterTextInTheSearchField()
+    public String isTheEnteredTextDisplayed() {
+        return homePage.enterTextInTheSearchField()
                        .displayOfEnteredText();
+    }
+
+    public String isLogInCorrect() {
+         return logInPage.enterEmailInTheEmailField()
+                         .enterPasswordInThePasswordField()
+                         .clickTheSighInButton()
+                         .getTextFromSignInButton();
+    }
+
+    public String isLogOutCorrect() {
+        return logInPage.enterEmailInTheEmailField()
+                        .enterPasswordInThePasswordField()
+                        .clickTheSighInButton()
+                        .clickTheYourAccountButton()
+                        .clickTheLogOutButton()
+                        .getTextFromSignInButton();
+    }
+
+    public String newUserRegistration(String firstName, String lastName, String password, String email) throws InterruptedException {
+         return logInPage.clickTheRegisterNowButton()
+                .enterEmailInTheEmailAddressField(email)
+                .clickOnTheContinueButton()
+                .chooseTitle()
+                .enterFirstAndLastNameInTheFirstNameAndLastNameField(firstName, lastName)
+                .chooseProfession()
+                .enterPostcode()
+                .selectAddress()
+                .enterAndRetypePassword(password)
+                .clickOnTheRegisterNowButton()
+                .clickOnTheContinueShoppingButton()
+                .getTextFromSignInButton();
     }
 }

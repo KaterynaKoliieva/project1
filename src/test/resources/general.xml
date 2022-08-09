@@ -8,6 +8,11 @@
                 <include name="checkTheEnteredText"/>
             </methods>
         </class>
+            <class name="ScrewfixTests">
+                <methods>
+                    <include name="checkLogIn"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

@@ -1,6 +1,5 @@
 package utils;
 
-import dataProvider.ConfigFileReader;
 import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

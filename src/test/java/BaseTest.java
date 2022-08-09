@@ -1,16 +1,18 @@
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.*;
 import utils.DriverSingleton;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class BaseTest {
+
     @BeforeTest
-    public void profileSetUp() {
+    public void profileSetUp()  {
         DriverSingleton.getDriver();
     }
-
     @BeforeMethod
-    public void testsSetUp() {
+    public void testsSetUp (){
         DriverSingleton.openUrl();
     }
 
