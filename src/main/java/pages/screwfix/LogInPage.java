@@ -38,7 +38,7 @@ public class LogInPage extends BasePage {
     @FindBy(xpath = "//button[contains(@class,'id-register-button')]")
     private WebElement registerNowButton;
 
-    @Step("Email: {email}")
+    @Step("Email: {emailOfTheRegisteredUser}")
     public LogInPage enterEmailInTheEmailField(String emailOfTheRegisteredUser) {
         waitForPageLoadComplete();
         implicitlyWait();
