@@ -16,9 +16,9 @@ public class BusinessLogicLayer extends BasePage {
                        .displayOfEnteredText();
     }
 
-    public String isLogInCorrect() {
-         return logInPage.enterEmailInTheEmailField()
-                         .enterPasswordInThePasswordField()
+    public String isLogInCorrect(String emailOfTheRegisteredUser, String passwordOfTheRegisteredUser) {
+         return logInPage.enterEmailInTheEmailField(emailOfTheRegisteredUser)
+                         .enterPasswordInThePasswordField(passwordOfTheRegisteredUser)
                          .clickTheSighInButton()
                          .getTextFromSignInButton();
     }

@@ -23,4 +23,7 @@ public class UsefulFunctions {
     public static String password = randomName();
     public static String fullName = firstName + " " + lastName;
 
+    public static String passwordOfTheRegisteredUser = PageFactoryManager.configFileReader.getEnteredPassword();
+    public static String emailOfTheRegisteredUser = PageFactoryManager.configFileReader.getEnteredEmail();
+
 }

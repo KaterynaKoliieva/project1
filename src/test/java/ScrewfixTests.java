@@ -7,7 +7,7 @@ public class ScrewfixTests extends BaseTest{
 
     @Test
     public void checkLogIn() {
-        Assert.assertEquals(businessLogicLayer.isLogInCorrect(), configFileReader.getSignInText());
+        Assert.assertEquals(businessLogicLayer.isLogInCorrect(emailOfTheRegisteredUser, passwordOfTheRegisteredUser), configFileReader.getSignInText());
     }
 
     @Test
@@ -15,7 +15,7 @@ public class ScrewfixTests extends BaseTest{
         Assert.assertEquals(businessLogicLayer.isLogOutCorrect(), configFileReader.getSignOutText());
     }
 
-    @Test
+    @Test()
     public void checkNewUniqueUserRegistration() throws InterruptedException {
         Assert.assertEquals(businessLogicLayer.newUserRegistration(firstName, lastName, password, email), fullName);
     }

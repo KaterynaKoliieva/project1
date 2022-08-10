@@ -1,5 +1,6 @@
 package pages.screwfix;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,7 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//button[@id='continueRegistrationButton']")
     private WebElement continueButton;
 
+    @Step("Email: {email}")
     public RegistrationPage enterEmailInTheEmailAddressField(String email) {
         waitForPageLoadComplete();
         emailAddressField.click();

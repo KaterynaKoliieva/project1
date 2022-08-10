@@ -1,5 +1,6 @@
 package pages.screwfix;
 
+import io.qameta.allure.Step;
 import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -81,7 +82,7 @@ public class CreateWebAccountPage extends BasePage {
         selectAddressButton.get(rndNumber).click();
         return this;
     }
-
+    @Step("Password: {password}")
     public CreateWebAccountPage enterAndRetypePassword(String password) throws InterruptedException {
         //String password = UsefulFunctions.randomName();
         passwordButton.click();

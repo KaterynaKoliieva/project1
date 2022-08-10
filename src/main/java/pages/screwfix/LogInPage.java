@@ -1,6 +1,6 @@
 package pages.screwfix;
 
-import manager.PageFactoryManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 
 
@@ -38,7 +38,8 @@ public class LogInPage extends BasePage {
     @FindBy(xpath = "//button[contains(@class,'id-register-button')]")
     private WebElement registerNowButton;
 
-    public LogInPage enterEmailInTheEmailField() {
+    @Step("Email: {email}")
+    public LogInPage enterEmailInTheEmailField(String emailOfTheRegisteredUser) {
         waitForPageLoadComplete();
         implicitlyWait();
         try{
@@ -49,13 +50,14 @@ public class LogInPage extends BasePage {
             }
         } catch (NoSuchElementException e){}
         emailField.click();
-        emailField.sendKeys(PageFactoryManager.configFileReader.getEnteredEmail());
+        emailField.sendKeys(emailOfTheRegisteredUser);
         return this;
     }
 
-    public LogInPage enterPasswordInThePasswordField(){
+    @Step("Password: {passwordOfTheRegisteredUser}")
+    public LogInPage enterPasswordInThePasswordField(String passwordOfTheRegisteredUser){
         passwordField.click();
-        passwordField.sendKeys(PageFactoryManager.configFileReader.getEnteredPassword());
+        passwordField.sendKeys(passwordOfTheRegisteredUser);
         return this;
     }
 
@@ -66,7 +68,6 @@ public class LogInPage extends BasePage {
 
     public RegistrationPage clickTheRegisterNowButton() {
         waitForPageLoadComplete();
-        implicitlyWait();
         try{
             if(iframe.isDisplayed()){
                 Frames.switchToFrame(iframe);
