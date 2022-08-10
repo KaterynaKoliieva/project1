@@ -24,12 +24,8 @@ public class BusinessLogicLayer extends BasePage {
     }
 
     public String isLogOutCorrect() {
-        return logInPage.enterEmailInTheEmailField()
-                        .enterPasswordInThePasswordField()
-                        .clickTheSighInButton()
-                        .clickTheYourAccountButton()
-                        .clickTheLogOutButton()
-                        .getTextFromSignInButton();
+        return logInPage.clickTheLogOutButton()
+                        .isTheSignInButtonDisplayed();
     }
 
     public String newUserRegistration(String firstName, String lastName, String password, String email) throws InterruptedException {

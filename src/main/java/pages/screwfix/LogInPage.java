@@ -25,6 +25,10 @@ public class LogInPage extends BasePage {
     @FindBy(xpath = "//button[@id='sign-in-btn']")
     private WebElement sighInButton;
 
+    @FindBy(xpath = "//a[@id='header_link_sign_out']")
+    private WebElement logOutButton;
+
+
     @FindBy(xpath = "//a[@class='call']")
     private WebElement acceptCookiesButton;
 
@@ -37,12 +41,15 @@ public class LogInPage extends BasePage {
     public LogInPage enterEmailInTheEmailField() {
         waitForPageLoadComplete();
         implicitlyWait();
-        Frames.switchToFrame(iframe);
-        acceptCookiesButton.click();
-        Frames.switchToDefaultContent();
+        try{
+            if(iframe.isDisplayed()){
+                Frames.switchToFrame(iframe);
+                acceptCookiesButton.click();
+                Frames.switchToDefaultContent();
+            }
+        } catch (NoSuchElementException e){}
         emailField.click();
         emailField.sendKeys(PageFactoryManager.configFileReader.getEnteredEmail());
-
         return this;
     }
 
@@ -60,11 +67,24 @@ public class LogInPage extends BasePage {
     public RegistrationPage clickTheRegisterNowButton() {
         waitForPageLoadComplete();
         implicitlyWait();
-        Frames.switchToFrame(iframe);
-        acceptCookiesButton.click();
-        Frames.switchToDefaultContent();
+        try{
+            if(iframe.isDisplayed()){
+                Frames.switchToFrame(iframe);
+                acceptCookiesButton.click();
+                Frames.switchToDefaultContent();
+            }
+        } catch (NoSuchElementException e){}
         registerNowButton.click();
         return new RegistrationPage(driver);
+    }
+
+    public LogInPage clickTheLogOutButton() {
+        logOutButton.click();
+        return this;
+    }
+
+    public String isTheSignInButtonDisplayed() {
+       return sighInButton.getText();
     }
 
 }

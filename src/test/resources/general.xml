@@ -3,14 +3,11 @@
 <suite name="JDI-Light Performance" parallel="classes" thread-count="6">
     <test name="Tests">
         <classes>
-        <class name="SearchTextTest">
-            <methods>
-                <include name="checkTheEnteredText"/>
-            </methods>
-        </class>
             <class name="ScrewfixTests">
                 <methods>
                     <include name="checkLogIn"/>
+                    <include name="checkLogOut"/>
+                    <include name="checkNewUniqueUserRegistration"/>
                 </methods>
             </class>
         </classes>
