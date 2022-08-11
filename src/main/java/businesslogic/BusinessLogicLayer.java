@@ -23,7 +23,7 @@ public class BusinessLogicLayer extends BasePage {
                          .getTextFromSignInButton();
     }
 
-    public String isLogOutCorrect() {
+    public boolean isLogOutCorrect() {
         return logInPage.clickTheLogOutButton()
                         .isTheSignInButtonDisplayed();
     }

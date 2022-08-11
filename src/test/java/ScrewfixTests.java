@@ -12,7 +12,7 @@ public class ScrewfixTests extends BaseTest{
 
     @Test
     public void checkLogOut() {
-        Assert.assertEquals(businessLogicLayer.isLogOutCorrect(), configFileReader.getSignOutText());
+        Assert.assertTrue(businessLogicLayer.isLogOutCorrect());
     }
 
     @Test()

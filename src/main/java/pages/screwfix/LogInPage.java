@@ -68,13 +68,13 @@ public class LogInPage extends BasePage {
 
     public RegistrationPage clickTheRegisterNowButton() {
         waitForPageLoadComplete();
-        try{
+       /* try{
             if(iframe.isDisplayed()){
                 Frames.switchToFrame(iframe);
                 acceptCookiesButton.click();
                 Frames.switchToDefaultContent();
             }
-        } catch (NoSuchElementException e){}
+        } catch (NoSuchElementException e){}*/
         registerNowButton.click();
         return new RegistrationPage(driver);
     }
@@ -84,8 +84,8 @@ public class LogInPage extends BasePage {
         return this;
     }
 
-    public String isTheSignInButtonDisplayed() {
-       return sighInButton.getText();
+    public boolean isTheSignInButtonDisplayed() {
+       return sighInButton.isDisplayed();
     }
 
 }

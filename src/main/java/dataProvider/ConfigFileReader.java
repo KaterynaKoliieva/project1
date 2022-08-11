@@ -69,13 +69,6 @@ public class ConfigFileReader {
             if(text != null) return text;
             else throw new RuntimeException("sign_in is not specified in the Configuration.properties file.");
         }
-
-        public String getSignOutText() {
-            String text = properties.getProperty("sign_out");
-            if(text != null) return text;
-            else throw new RuntimeException("sign_out is not specified in the Configuration.properties file.");
-        }
-
         public String getName() {
             String text = properties.getProperty("name");
             if(text != null) return text;
