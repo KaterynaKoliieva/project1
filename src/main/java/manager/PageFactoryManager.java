@@ -1,19 +1,19 @@
 package manager;
 
-import businesslogic.BusinessLogicLayer;
-import dataProvider.ConfigFileReader;
-import pages.rozetka.HomePage;
-import pages.screwfix.HomePageScrewfix;
-import pages.screwfix.LogInPage;
-import utils.DriverSingleton;
+import org.openqa.selenium.WebDriver;
+import pages.*;
 
 
 public class PageFactoryManager {
+    WebDriver driver;
+    public PageFactoryManager(WebDriver driver){
+        this.driver = driver;
+    }
 
-    public static final HomePage homePage = new HomePage(DriverSingleton.getDriver());
+    public HomePage getHomePage(){return new HomePage(driver); }
+    public LogInPage getLogInPage(){return new LogInPage(driver); }
+    public CreateWebAccountPage getCreateWebAccountPage(){return new CreateWebAccountPage(driver); }
+    public RegistrationCompletePage getRegistrationCompletePage(){return new RegistrationCompletePage(driver); }
+    public RegistrationPage getRegistrationPage(){return new RegistrationPage(driver); }
 
-    public static final HomePageScrewfix homePageScrewfix = new HomePageScrewfix(DriverSingleton.getDriver());
-    public static final BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer(DriverSingleton.getDriver());
-    public static final ConfigFileReader configFileReader = new ConfigFileReader();
-    public static final LogInPage logInPage = new LogInPage(DriverSingleton.getDriver());
 }

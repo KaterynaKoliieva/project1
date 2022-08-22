@@ -1,14 +1,10 @@
-package pages.screwfix;
+package pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 
 
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
-import utils.Frames;
-
-import static utils.Wait.*;
 
 public class LogInPage extends BasePage {
 
@@ -28,7 +24,6 @@ public class LogInPage extends BasePage {
     @FindBy(xpath = "//a[@id='header_link_sign_out']")
     private WebElement logOutButton;
 
-
     @FindBy(xpath = "//a[@class='call']")
     private WebElement acceptCookiesButton;
 
@@ -38,50 +33,52 @@ public class LogInPage extends BasePage {
     @FindBy(xpath = "//button[contains(@class,'id-register-button')]")
     private WebElement registerNowButton;
 
+    public void openLoginPage(final String url) {
+        driver.get(url);
+    }
     @Step("Email: {emailOfTheRegisteredUser}")
-    public LogInPage enterEmailInTheEmailField(String emailOfTheRegisteredUser) {
+    public void enterEmailInTheEmailField(String emailOfTheRegisteredUser) throws InterruptedException {
         waitForPageLoadComplete();
         implicitlyWait();
         try{
             if(iframe.isDisplayed()){
-                Frames.switchToFrame(iframe);
+                driver.switchTo().defaultContent();
+                driver.switchTo().frame(iframe);
                 acceptCookiesButton.click();
-                Frames.switchToDefaultContent();
+                driver.switchTo().defaultContent();
             }
         } catch (NoSuchElementException e){}
         emailField.click();
         emailField.sendKeys(emailOfTheRegisteredUser);
-        return this;
     }
 
     @Step("Password: {passwordOfTheRegisteredUser}")
-    public LogInPage enterPasswordInThePasswordField(String passwordOfTheRegisteredUser){
+    public void enterPasswordInThePasswordField(String passwordOfTheRegisteredUser){
         passwordField.click();
         passwordField.sendKeys(passwordOfTheRegisteredUser);
-        return this;
     }
 
-    public HomePageScrewfix clickTheSighInButton() {
+    public void clickTheSighInButton() {
         sighInButton.click();
-        return new HomePageScrewfix(driver);
     }
 
-    public RegistrationPage clickTheRegisterNowButton() {
+    public void clickTheRegisterNowButton() {
         waitForPageLoadComplete();
-       /* try{
+        implicitlyWait();
+        try{
             if(iframe.isDisplayed()){
-                Frames.switchToFrame(iframe);
+                driver.switchTo().defaultContent();
+                driver.switchTo().frame(iframe);
                 acceptCookiesButton.click();
-                Frames.switchToDefaultContent();
+                driver.switchTo().defaultContent();
             }
-        } catch (NoSuchElementException e){}*/
+        } catch (NoSuchElementException e){}
         registerNowButton.click();
-        return new RegistrationPage(driver);
     }
 
-    public LogInPage clickTheLogOutButton() {
+    public void clickTheLogOutButton() {
+        waitVisibilityOfElement(logOutButton);
         logOutButton.click();
-        return this;
     }
 
     public boolean isTheSignInButtonDisplayed() {

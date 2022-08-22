@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class ConfigFileReader {
 
-    private Properties properties;
+    private static Properties properties;
     private final String propertyFilePath= "configs//Configuration.properties";
 
     public ConfigFileReader() {
@@ -69,13 +69,13 @@ public class ConfigFileReader {
             if(text != null) return text;
             else throw new RuntimeException("sign_in is not specified in the Configuration.properties file.");
         }
-        public String getName() {
+        public static String getName() {
             String text = properties.getProperty("name");
             if(text != null) return text;
             else throw new RuntimeException("name is not specified in the Configuration.properties file.");
         }
 
-        public String getPostcode() {
+        public static String getPostcode() {
             String text = properties.getProperty("postcode");
             if(text != null) return text;
             else throw new RuntimeException("postcode is not specified in the Configuration.properties file.");

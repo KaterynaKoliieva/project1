@@ -1,16 +1,19 @@
-package pages.screwfix;
+package pages;
 
+import dataProvider.ConfigFileReader;
 import io.qameta.allure.Step;
-import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 import utils.UsefulFunctions;
 
-import java.util.List;
 
-import static utils.Wait.*;
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.Random;
+
+import static utils.UsefulFunctions.password;
+
 
 public class CreateWebAccountPage extends BasePage {
     public CreateWebAccountPage(WebDriver driver) {
@@ -43,59 +46,59 @@ public class CreateWebAccountPage extends BasePage {
     @FindBy(xpath = "//button[@class='btn btn--primary fill btn--xl']")
     private WebElement registerNowButton;
 
-    public CreateWebAccountPage chooseTitle() {
+    public void chooseTitle() {
         waitForPageLoadComplete();
         int rndNumber = UsefulFunctions.randomNumber(selectTitleButton.size());
+        implicitlyWait();
         waitForTheElementToClick(selectTitleButton.get(rndNumber));
         selectTitleButton.get(rndNumber).click();
-        return this;
     }
 
-    public CreateWebAccountPage enterFirstAndLastNameInTheFirstNameAndLastNameField(String firstName, String lastName) {
+    public String enterFirstNameInTheFirstNameField(String firstName) {
         waitForTheElementToClick(firstNameButton);
         firstNameButton.click();
         firstNameButton.sendKeys(firstName);
+        return firstName;
+    }
+
+    public String enterLastNameInTheLastNameField(String lastName) {
         waitForTheElementToClick(lastNameButton);
         lastNameButton.click();
         lastNameButton.sendKeys(lastName);
-        return this;
+        return lastName;
     }
-    public CreateWebAccountPage chooseProfession() {
+    public void chooseProfession() {
         int rndNumber = UsefulFunctions.randomNumber(selectProfessionButton.size());
+        implicitlyWait();
         waitForTheElementToClick(selectProfessionButton.get(rndNumber));
         selectProfessionButton.get(rndNumber).click();
-        return this;
     }
 
-    public CreateWebAccountPage enterPostcode() throws InterruptedException {
+    public void enterPostcode() throws InterruptedException {
         waitForTheElementToClick(postcodeButton);
         postcodeButton.click();
-        postcodeButton.sendKeys(PageFactoryManager.configFileReader.getPostcode());
+        postcodeButton.sendKeys(ConfigFileReader.getPostcode());
         waitForTheElementToClick(findAddressButton);
         findAddressButton.click();
-        return this;
     }
 
-    public CreateWebAccountPage selectAddress() {
+    public void selectAddress() {
         int rndNumber = UsefulFunctions.randomNumber(selectAddressButton.size());
+        implicitlyWait();
         waitForTheElementToClick(selectAddressButton.get(rndNumber));
         selectAddressButton.get(rndNumber).click();
-        return this;
     }
     @Step("Password: {password}")
-    public CreateWebAccountPage enterAndRetypePassword(String password) throws InterruptedException {
-        //String password = UsefulFunctions.randomName();
+    public void enterAndRetypePassword() throws InterruptedException {
         passwordButton.click();
         passwordButton.sendKeys(password);
         retypePasswordButton.click();
         retypePasswordButton.sendKeys(password);
-        Thread.sleep(4000);
-        return this;
+        threadSleep();
     }
 
-    public RegistrationCompletePage clickOnTheRegisterNowButton() {
+    public void clickOnTheRegisterNowButton() {
         registerNowButton.click();
-        return new RegistrationCompletePage(driver);
     }
 
 

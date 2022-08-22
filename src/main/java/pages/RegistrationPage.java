@@ -1,11 +1,14 @@
-package pages.screwfix;
+package pages;
 
+import dataProvider.ConfigFileReader;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
-import static utils.Wait.waitForPageLoadComplete;
+
+import java.sql.Timestamp;
+
+import static utils.UsefulFunctions.email;
 
 public class RegistrationPage extends BasePage {
 
@@ -20,15 +23,13 @@ public class RegistrationPage extends BasePage {
     private WebElement continueButton;
 
     @Step("Email: {email}")
-    public RegistrationPage enterEmailInTheEmailAddressField(String email) {
+    public void enterEmailInTheEmailAddressField() {
         waitForPageLoadComplete();
         emailAddressField.click();
         emailAddressField.sendKeys(email);
-        return this;
     }
 
-    public CreateWebAccountPage clickOnTheContinueButton() {
+    public void clickOnTheContinueButton() {
         continueButton.click();
-        return new CreateWebAccountPage(driver);
     }
 }

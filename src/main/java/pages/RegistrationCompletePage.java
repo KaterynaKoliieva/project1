@@ -1,10 +1,8 @@
-package pages.screwfix;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
-import static utils.Wait.waitForPageLoadComplete;
 
 public class RegistrationCompletePage extends BasePage {
 
@@ -15,11 +13,10 @@ public class RegistrationCompletePage extends BasePage {
     @FindBy(xpath = "//a[contains(@class,'btn--primary sm-fill')]")
     private WebElement continueShoppingButton;
 
-    public HomePageScrewfix clickOnTheContinueShoppingButton() throws InterruptedException {
+    public void clickOnTheContinueShoppingButton() throws InterruptedException {
         waitForPageLoadComplete();
-        Thread.sleep(4000);
+        threadSleep();
         continueShoppingButton.click();
-        return new HomePageScrewfix(driver);
     }
 
 
