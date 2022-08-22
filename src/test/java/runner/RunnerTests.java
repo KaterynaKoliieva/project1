@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/main/resources/authentication.feature",
+        features = {"src/main/resources/authentication.feature","src/main/resources/registration.feature",},
         glue = "stepdefinitions",
         publish = true
 )
