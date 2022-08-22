@@ -7,7 +7,7 @@
     <groupId>com.epam.jdi</groupId>
     <artifactId>jdi-light-testng-template</artifactId>
     <version>1.0.0</version>
-    <name>Template: JDI Light TestNG</name>
+    <name>Cucumber</name>
 
     <properties>
         <driver>chrome</driver>
@@ -109,9 +109,7 @@
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/general.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+                    
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
