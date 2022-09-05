@@ -23,7 +23,7 @@ public class RegistrationPage extends BasePage {
     private WebElement continueButton;
 
     @Step("Email: {email}")
-    public void enterEmailInTheEmailAddressField() {
+    public void enterEmailInTheEmailAddressField(String email) {
         waitForPageLoadComplete();
         emailAddressField.click();
         emailAddressField.sendKeys(email);

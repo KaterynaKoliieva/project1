@@ -84,7 +84,7 @@
         <!--AllureMy-->
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber4-jvm</artifactId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
             <version>${allure.cucumber}</version>
         </dependency>
 

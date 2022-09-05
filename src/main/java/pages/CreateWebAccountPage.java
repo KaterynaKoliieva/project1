@@ -89,7 +89,7 @@ public class CreateWebAccountPage extends BasePage {
         selectAddressButton.get(rndNumber).click();
     }
     @Step("Password: {password}")
-    public void enterAndRetypePassword() throws InterruptedException {
+    public void enterAndRetypePassword(String password) throws InterruptedException {
         passwordButton.click();
         passwordButton.sendKeys(password);
         retypePasswordButton.click();

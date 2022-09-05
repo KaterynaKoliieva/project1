@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
 import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +16,7 @@ import utils.UsefulFunctions;
 import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static utils.UsefulFunctions.fullName;
+import static utils.UsefulFunctions.*;
 
 
 public class DefinitionSteps {
@@ -84,7 +85,7 @@ public class DefinitionSteps {
 
     @And("User enters email in the Email Address field")
     public void enterEmailInTheEmailAddressField() {
-        registrationPage.enterEmailInTheEmailAddressField();
+        registrationPage.enterEmailInTheEmailAddressField(email);
     }
 
     @And("User clicks on the Continue button")
@@ -124,7 +125,7 @@ public class DefinitionSteps {
 
     @And("User enters password and retypes it in the Password and Re-type Password fields")
     public void enterPasswordAndRetypesItInThePasswordAndReTypePasswordFields() throws InterruptedException {
-        createWebAccountPage.enterAndRetypePassword();
+        createWebAccountPage.enterAndRetypePassword(password);
     }
 
     @And("User clicks on the Register now button")
