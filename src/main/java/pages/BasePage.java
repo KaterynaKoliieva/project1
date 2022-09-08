@@ -11,8 +11,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePage {
-    WebDriver driver;
+
+    static WebDriver driver;
     ConfigFileReader configFileReader;
+
     private static final int DEFAULT_TIME = 20;
 
     public BasePage(WebDriver driver) {
@@ -20,26 +22,28 @@ public class BasePage {
         PageFactory.initElements(driver, this);
         configFileReader= new ConfigFileReader();
     }
-    public void waitForPageLoadComplete() {
+
+    public static void waitForPageLoadComplete() {
         new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIME)).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 
-    public void waitVisibilityOfElement(WebElement locator) {
+    public static void waitVisibilityOfElement(WebElement locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIME));
         wait.until(ExpectedConditions.visibilityOf(locator));
     }
 
-    public void waitForTheElementToClick(WebElement locator) {
+    public static void waitForTheElementToClick(WebElement locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIME));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public void implicitlyWait() {
+    public static void implicitlyWait() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(DEFAULT_TIME));
     }
 
-    public void threadSleep() throws InterruptedException {
+    public static void threadSleep() throws InterruptedException {
         Thread.sleep(4000);
     }
+
 }

@@ -1,14 +1,8 @@
 package pages;
 
-import dataProvider.ConfigFileReader;
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.sql.Timestamp;
-
-import static utils.UsefulFunctions.email;
 
 public class RegistrationPage extends BasePage {
 
@@ -22,7 +16,7 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//button[@id='continueRegistrationButton']")
     private WebElement continueButton;
 
-    @Step("Email: {email}")
+
     public void enterEmailInTheEmailAddressField(String email) {
         waitForPageLoadComplete();
         emailAddressField.click();

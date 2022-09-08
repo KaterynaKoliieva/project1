@@ -7,12 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.UsefulFunctions;
 
-
-import java.sql.Timestamp;
 import java.util.List;
-import java.util.Random;
-
-import static utils.UsefulFunctions.password;
 
 
 public class CreateWebAccountPage extends BasePage {

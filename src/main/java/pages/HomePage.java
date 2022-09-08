@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.Wait;
 
 
 public class HomePage extends BasePage {
@@ -19,6 +20,12 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//a[@id='header_link_sign_out']")
     private WebElement logOutButton;
+
+    @FindBy(xpath = "//input[@id='mainSearch-input']")
+    private WebElement searchField;
+
+    @FindBy(xpath = "//input[@id='search_submit_button']")
+    private WebElement searchButton;
 
 
     public String getTextFromSignInButton() {
@@ -39,6 +46,17 @@ public class HomePage extends BasePage {
     public String isLogOutCorrect(){
         waitVisibilityOfElement(yourAccountButton);
         return yourAccountButton.getText();
+    }
+
+    public void enterTextInTheSearchField(String text){
+        waitForTheElementToClick(searchField);
+        searchField.click();
+        searchField.sendKeys(text);
+    }
+
+    public void clickOnTheSearchButton(){
+        waitForTheElementToClick(searchButton);
+        searchButton.click();
     }
 
 }

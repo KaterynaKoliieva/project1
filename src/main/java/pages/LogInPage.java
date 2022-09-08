@@ -1,9 +1,9 @@
 package pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.*;
-
-
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LogInPage extends BasePage {
@@ -37,7 +37,7 @@ public class LogInPage extends BasePage {
         driver.get(url);
     }
     @Step("Email: {emailOfTheRegisteredUser}")
-    public void enterEmailInTheEmailField(String emailOfTheRegisteredUser) throws InterruptedException {
+    public void enterEmailInTheEmailField(String emailOfTheRegisteredUser) {
         waitForPageLoadComplete();
         implicitlyWait();
         try{

@@ -16,4 +16,8 @@ public class PageFactoryManager {
     public RegistrationCompletePage getRegistrationCompletePage(){return new RegistrationCompletePage(driver); }
     public RegistrationPage getRegistrationPage(){return new RegistrationPage(driver); }
 
+    public ProductPage getProductPage(){return new ProductPage(driver); }
+    public CheckStockPage getCheckStockPage(){return new CheckStockPage(driver); }
+    public BasketPage getBasketPage(){return new BasketPage(driver); }
+
 }
