@@ -13,4 +13,4 @@ Implementation of this task in branches:
 
 2.The registration of a new user:
 * [registration TestNG](https://github.com/KaterynaKoliieva/project1/blob/dev/src/test/java/ScrewfixTests.java);
-* [registration Cucumber](https://github.com/KaterynaKoliieva/project1/blob/cucumber/src/main/resources/registration.feature).
+* [registration and checking basket on the Cucumber](https://github.com/KaterynaKoliieva/project1/blob/cucumber/src/main/resources/newUserPurchases.feature).
