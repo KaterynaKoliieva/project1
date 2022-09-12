@@ -62,6 +62,18 @@ public class ConfigFileReader {
             else throw new RuntimeException("postcode is not specified in the Configuration.properties file.");
         }
 
+        public static String getProductSearch() {
+            String url = properties.getProperty("product_search");
+            if(url != null) return url;
+            else throw new RuntimeException("Product search is not specified in the Configuration.properties file.");
+        }
+
+        public static String getPostcode2() {
+            String url = properties.getProperty("postcode2");
+            if(url != null) return url;
+            else throw new RuntimeException("Postcode2 is not specified in the Configuration.properties file.");
+        }
+
 
     }
 

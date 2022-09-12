@@ -16,9 +16,16 @@ Feature: Smoke
     And User selects Address
     And User enters password and retypes it in the Password and Re-type Password fields
     And User clicks on the Register now button
-    When User clicks the Continue Shopping button
+    Then User clicks the Continue Shopping button
+
+  @RegistrationTest
+  Scenario Outline: Check the registration of a new user
     Then User sees his first name and last name in the Account field
 
+    Examples:
+      |  |
+
+  @ShoppingCartTest
   Scenario Outline: Check the shopping cart
       Given User enters the '<name>' of the product in the search field
       And User clicks the Deliver button for the desired product1

@@ -53,6 +53,7 @@ public class DefinitionSteps {
 
     @When("User enters email in the Email field")
     public void enterEmailInTheEmailField() throws InterruptedException {
+        System.out.println("CHECK enter Email");
         logInPage.enterEmailInTheEmailField(ConfigFileReader.getEnteredEmail());
     }
 
@@ -152,8 +153,8 @@ public class DefinitionSteps {
         assertEquals(homePage.getTextFromSignInButton(), fullName);
     }
     @Given("User enters the {string} of the product in the search field")
-    public void enterTheNameOfTheProductInTheSearchField(String nameOfTheProduct) {
-        homePage.enterTextInTheSearchField(nameOfTheProduct);
+    public void enterTheNameOfTheProductInTheSearchField(String name) {
+        homePage.enterTextInTheSearchField(name);
         homePage.clickOnTheSearchButton();
     }
 

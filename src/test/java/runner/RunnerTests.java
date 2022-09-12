@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
+        tags = "@LogInTest or @LogOutTest or @RegistrationTest or @ShoppingCartTest",
         features = {"src/main/resources/authentication.feature","src/main/resources/newUserPurchases.feature"},
         glue = "stepdefinitions",
         publish = true,
